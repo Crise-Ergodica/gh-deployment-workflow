@@ -1,0 +1,59 @@
+name: Deploy to GitHub Pages
+
+# Trigger: Apenas quando index.html for modificado no branch main
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+
+# Permissões necessárias para deploy no GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita execuções concorrentes
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job de build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: 🏗️ Build site
+        run: |
+          echo "🚀 Building static site..."
+          echo "✅ index.html found and ready to deploy"
+          ls -la index.html
+
+      - name: 📤 Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  # Job de deploy (só executa após build)
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: ✨ Deployment successful
+        run: |
+          echo "✅ Site deployed successfully!"
+          echo "🌐 URL: ${{ steps.deployment.outputs.page_url }}"
