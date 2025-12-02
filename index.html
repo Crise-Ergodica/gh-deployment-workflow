@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto de CI/CD com GitHub Actions">
+    <title>GitHub Actions CI/CD Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .link {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid #fff;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+
+        .version {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🚀</div>
+        <h1>Olá, GitHub Actions!</h1>
+        <p>Este site foi implantado automaticamente usando <strong>CI/CD</strong></p>
+        
+        <div>
+            <span class="badge">✅ GitHub Actions</span>
+            <span class="badge">📦 GitHub Pages</span>
+            <span class="badge">🔄 Auto Deploy</span>
+        </div>
+
+        <div class="info">
+            <p><strong>Como funciona:</strong></p>
+            <p>Toda vez que o <code>index.html</code> é modificado no branch <code>main</code>,</p>
+            <p>o GitHub Actions executa o workflow e publica automaticamente!</p>
+        </div>
+
+        <div class="version">
+            <p>🔖 Deploy automático ativo</p>
+            <p>Versão: 1.0.0</p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <a href="https://github.com/Crise-Ergodica/gh-deployment-workflow" class="link" target="_blank">
+                👁️ Ver repositório no GitHub
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Log deployment info
+        console.log('%c🚀 Deployed with GitHub Actions! ', 'background: #667eea; color: white; font-size: 20px; padding: 10px;');
+        console.log('Repository: https://github.com/Crise-Ergodica/gh-deployment-workflow');
+        console.log('Deployed at:', new Date().toLocaleString());
+    </script>
+</body>
+</html>
